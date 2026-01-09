@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  cppdev:
+    container_name: cppdev
+    restart: unless-stopped
+
+    command: tail -F /dev/null
+    image: cpp-development-environment:latest
+
+    volumes:
+      - cppdev-.ccache:/root/.ccache:rw
+      - cppdev-.commandhistory:/root/.commandhistory:rw
+      - cppdev-.ssh:/root/.ssh:rw
+      - cppdev-workspace:/root/workspace:rw
+
+volumes:
+  cppdev-.ccache:
+  cppdev-.commandhistory:
+  cppdev-.ssh:
+  cppdev-workspace:
